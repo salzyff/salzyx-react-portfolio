@@ -25,15 +25,15 @@ const projects = [
     title: 'WAYPOINT',
     oldTitle: 'PASSAGE',
     type: 'Product prototype',
-    status: 'Live prototype',
+    status: 'Prototype only',
     category: 'Product',
     year: '2026',
     description: 'A trade-compliance compiler that helps African businesses test whether a shipment is ready before it leaves the warehouse.',
     tags: ['React', 'Supabase', 'Rules engine'],
     accent: 'lime',
     visual: 'waypoint',
-    link: 'https://waypoint-trade-compiler.salzyx.chatgpt.site',
-    linkLabel: 'Open prototype',
+    link: null,
+    linkLabel: 'Case study',
     details: ['Shipment readiness checks', 'Blocker detection and resolution', 'Digital shipment passport', 'Built around African trade corridors'],
   },
   {
@@ -132,22 +132,6 @@ const projects = [
     linkLabel: 'View build',
     details: ['Dashboard and account views', 'Sample transaction data', 'Responsive fintech layout', 'Local demo mode'],
   },
-  {
-    id: 'zoe',
-    number: '08',
-    title: 'Zoe Palm Oil',
-    type: 'Product website',
-    status: 'Concept build',
-    category: 'Client work',
-    year: '2026',
-    description: 'A product-led React concept for Zoe Palm Oil, shaped around the brand’s social presence and the story behind the product.',
-    tags: ['React', 'Brand site', 'Product design'],
-    accent: 'red',
-    visual: 'zoe',
-    link: 'https://www.instagram.com/zoepalmoil/',
-    linkLabel: 'View Instagram',
-    details: ['Brand-first hero section', 'Product information layout', 'Social-first discovery flow', 'Responsive landing page direction'],
-  },
 ]
 
 const filters = ['All', 'Product', 'Education', 'Commerce', 'Client work']
@@ -175,7 +159,7 @@ function App() {
       <header className="site-header">
         <button className="brand" onClick={() => scrollTo('top')} aria-label="Back to top">
           <span className="brand-mark">S<span>.</span></span>
-          <span>SALZYX</span>
+          <span>AKAPO ABDUL SALAM</span>
         </button>
         <nav className={menuOpen ? 'main-nav open' : 'main-nav'}>
           <button onClick={() => scrollTo('work')}>Work</button>
@@ -195,7 +179,7 @@ function App() {
           <div className="hero-copy">
             <div className="eyebrow"><span className="eyebrow-dot" /> Independent developer · Nigeria</div>
             <h1>I turn bold ideas into <em>useful</em> digital products.</h1>
-            <p className="hero-intro">I’m SalzyX — a React developer building thoughtful interfaces, practical tools, and brand experiences for the web.</p>
+            <p className="hero-intro">I’m Akapo Abdul Salam — a React developer building thoughtful interfaces, practical tools, and brand experiences for the web.</p>
             <div className="hero-actions">
               <button className="button button-primary" onClick={() => scrollTo('work')}>Explore my work <ArrowDownRight size={18} /></button>
               <button className="text-button" onClick={() => scrollTo('about')}>A little about me <ChevronRight size={16} /></button>
@@ -215,7 +199,7 @@ function App() {
               </div>
             </div>
             <div className="floating-tag tag-one"><Sparkles size={14} /> ideas → interface</div>
-            <div className="floating-tag tag-two">01—08 <span>selected projects</span></div>
+            <div className="floating-tag tag-two">01—07 <span>selected projects</span></div>
           </div>
         </section>
 
@@ -243,19 +227,19 @@ function App() {
             <h2>More than just<br /><em>pretty screens.</em></h2>
             <p>I care about the moment a product stops feeling like an idea and starts feeling real. My work usually sits at the intersection of good interface design, clear user journeys, and technology that actually solves something.</p>
             <p>From school systems and AI tools to commerce brands and trade infrastructure, I like building across different worlds — and learning what each one needs.</p>
-            <div className="about-facts"><span><strong>08</strong> projects explored</span><span><strong>React</strong> main toolkit</span><span><strong>NG</strong> building from Nigeria</span></div>
+            <div className="about-facts"><span><strong>07</strong> projects explored</span><span><strong>React</strong> main toolkit</span><span><strong>NG</strong> building from Nigeria</span></div>
           </div>
         </section>
 
         <section className="contact section-pad" id="contact">
           <div className="contact-inner">
             <div><p className="kicker">Have an idea?</p><h2>Let’s make it<br /><em>worth clicking.</em></h2></div>
-            <div className="contact-side"><p>Whether you need a product prototype, a sharp brand website, or help turning a messy idea into a clear experience, I’d love to hear about it.</p><button className="button button-light" onClick={() => window.location.href = 'mailto:?subject=Project%20idea%20for%20SalzyX'}>Start a conversation <ArrowUpRight size={18} /></button></div>
+            <div className="contact-side"><p>Whether you need a product prototype, a sharp brand website, or help turning a messy idea into a clear experience, I’d love to hear about it.</p><button className="button button-light" onClick={() => window.location.href = 'mailto:?subject=Project%20idea%20for%20Akapo%20Abdul%20Salam'}>Start a conversation <ArrowUpRight size={18} /></button></div>
           </div>
         </section>
       </main>
 
-      <footer className="site-footer"><span>© 2026 SALZYX</span><span>Built with React & curiosity</span><button onClick={() => scrollTo('top')}>Back to top <ArrowUpRight size={14} /></button></footer>
+      <footer className="site-footer"><span>© 2026 AKAPO ABDUL SALAM</span><span>Built with React & curiosity</span><button onClick={() => scrollTo('top')}>Back to top <ArrowUpRight size={14} /></button></footer>
 
       {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
     </div>
@@ -285,7 +269,7 @@ function ProjectVisual({ type, large = false }) {
   if (type === 'blaykik') return <div className={`visual-window blaykik ${large ? 'large' : ''}`}><div className="blay-top"><small>ABUJA ↔ ATLANTA</small><span>BLAYKIK</span></div><div className="blay-product"><div className="blay-bowl">✽</div><div><strong>AUTHENTIC<br />NIGERIAN<br />FLAVOURS</strong><small>PREMIUM IJEBU GARRI</small></div></div></div>
   if (type === 'akapsys') return <div className={`visual-window akapsys ${large ? 'large' : ''}`}><div className="aka-top"><span>A</span><b>AKAPSYS<br /><small>CONSULTANCY</small></b></div><div className="aka-copy"><small>PRODUCT REGISTRATION</small><strong>Get your product<br />ready for market.</strong><div className="aka-line" /></div></div>
   if (type === 'banking') return <div className={`visual-window banking ${large ? 'large' : ''}`}><div className="bank-head"><span>OVERVIEW</span><b>₦2,840,500</b></div><div className="bank-chart"><i /><i /><i /><i /><i /><i /><i /><i /></div><div className="bank-bottom"><span>Money in <b>+₦850k</b></span><span>Money out <b>-₦210k</b></span></div></div>
-  return <div className={`visual-window zoe ${large ? 'large' : ''}`}><div className="zoe-top"><span>ZOË</span><small>100% NATURAL</small></div><div className="zoe-bottle"><i>ZOË<br /><small>PALM OIL</small></i></div><strong>FROM OUR<br />FAMILY TO<br />YOUR TABLE.</strong></div>
+  return null
 }
 
 createRoot(document.getElementById('root')).render(<App />)
