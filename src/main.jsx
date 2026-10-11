@@ -11,7 +11,6 @@ import {
   Globe2,
   Layers3,
   Menu,
-  MessageCircle,
   MoveUpRight,
   Sparkles,
   X,
@@ -20,121 +19,273 @@ import './styles.css'
 
 const projects = [
   {
-    id: 'waypoint',
-    number: '01',
-    title: 'WAYPOINT',
-    oldTitle: 'PASSAGE',
-    type: 'Product prototype',
-    status: 'Prototype only',
-    category: 'Product',
-    year: '2026',
-    description: 'A trade-compliance compiler that helps African businesses test whether a shipment is ready before it leaves the warehouse.',
-    tags: ['React', 'Supabase', 'Rules engine'],
-    accent: 'lime',
-    visual: 'waypoint',
-    link: null,
-    linkLabel: 'Case study',
-    details: ['Shipment readiness checks', 'Blocker detection and resolution', 'Digital shipment passport', 'Built around African trade corridors'],
+    "id": "waypoint",
+    "title": "WAYPOINT",
+    "oldTitle": "PASSAGE",
+    "type": "Trade compliance platform",
+    "status": "Prototype",
+    "category": "Product",
+    "description": "A trade-compliance tool that helps African businesses check shipment readiness, resolve blockers, and compile a digital shipment passport.",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Supabase",
+      "Gemini"
+    ],
+    "accent": "lime",
+    "visual": "waypoint",
+    "repository": "salzyff/Waypoint",
+    "link": "https://waypoint-drab-theta.vercel.app",
+    "linkLabel": "Visit Waypoint",
+    "details": [
+      "Shipment readiness checks",
+      "Blocker detection and resolution",
+      "Digital shipment passport",
+      "Rules explorer and corridor simulator"
+    ],
+    "number": "01"
   },
   {
-    id: 'study-ai',
-    number: '02',
-    title: 'Study AI',
-    type: 'AI learning platform',
-    status: 'MVP built',
-    category: 'Product',
-    year: '2026',
-    description: 'A multi-subject study assistant with AI chat, private history, study plans, quizzes, flashcards, notes, and progress tracking.',
-    tags: ['React', 'Node.js', 'Supabase', 'Gemini'],
-    accent: 'blue',
-    visual: 'study',
-    link: 'https://studyaing.vercel.app',
-    linkLabel: 'Visit Study AI',
-    details: ['Explain, ask, and quiz modes', 'Auth and user-isolated data', 'AI tasks and study plans', 'Interactive quizzes with marking'],
+    "id": "study-ai",
+    "title": "Study AI",
+    "type": "AI learning platform",
+    "status": "MVP built",
+    "category": "Education",
+    "description": "A study assistant with AI chat, conversation memory, study plans, quizzes, flashcards, notes, and progress tracking.",
+    "tags": [
+      "React",
+      "Node.js",
+      "Supabase",
+      "Gemini"
+    ],
+    "accent": "blue",
+    "visual": "study",
+    "repository": "salzyff/ai-study-assistant",
+    "privateSource": true,
+    "link": "https://studyai.name.ng",
+    "linkLabel": "Visit Study AI",
+    "details": [
+      "AI chat with conversation memory",
+      "Private chat history and user accounts",
+      "Study plans, notes, and flashcards",
+      "Interactive quizzes and learning progress"
+    ],
+    "number": "02"
   },
   {
-    id: 'examora',
-    number: '03',
-    title: 'Examora',
-    type: 'Exam management system',
-    status: 'Complete build',
-    category: 'Education',
-    year: '2026',
-    description: 'A full-stack exam application for students, teachers, and administrators, designed around real school workflows.',
-    tags: ['React', 'Supabase', 'Auth', 'Vercel'],
-    accent: 'violet',
-    visual: 'examora',
-    link: null,
-    linkLabel: 'Case study',
-    details: ['Student, teacher, and admin roles', 'Timed exams and server-side scoring', 'Question bank and assessment builder', 'Results, announcements, and dashboards'],
+    "id": "examora",
+    "title": "Examora",
+    "type": "Exam management system",
+    "status": "Complete build",
+    "category": "Education",
+    "description": "An exam application for students, teachers, and administrators, with assessments, question banks, results, and school dashboards.",
+    "tags": [
+      "React",
+      "Supabase",
+      "Auth",
+      "Vercel"
+    ],
+    "accent": "violet",
+    "visual": "examora",
+    "repository": "salzyff/Examora",
+    "privateSource": true,
+    "link": "https://examora-navy.vercel.app",
+    "linkLabel": "Visit Examora",
+    "details": [
+      "Student, teacher, and admin roles",
+      "Timed exams and scoring",
+      "Question bank and assessment builder",
+      "Report cards and learning resources"
+    ],
+    "number": "03"
   },
   {
-    id: 'salams-store',
-    number: '04',
-    title: "Salam’s Store",
-    type: 'Commerce storefront',
-    status: 'In progress',
-    category: 'Commerce',
-    year: '2026',
-    description: 'A warm, fast storefront for everyday Nigerian groceries with product discovery, categories, cart flows, and delivery messaging.',
-    tags: ['React', 'Vite', 'Tailwind', 'E-commerce'],
-    accent: 'orange',
-    visual: 'store',
-    link: null,
-    linkLabel: 'View build',
-    details: ['Local grocery product catalogue', 'Cart and account experience', 'Responsive storefront shell', 'Nigerian pricing and delivery context'],
+    "id": "blaykik",
+    "title": "Blaykik Store",
+    "type": "Food brand storefront",
+    "status": "Website built",
+    "category": "Commerce",
+    "description": "A product-led website for a Nigerian food brand, showcasing Ijebu garri, palm oil, pantry staples, and custom branded packs.",
+    "tags": [
+      "React",
+      "Vite",
+      "Branding",
+      "Responsive UI"
+    ],
+    "accent": "green",
+    "visual": "blaykik",
+    "repository": "salzyff/blaykik-store",
+    "privateSource": true,
+    "link": "https://blaykik-store.vercel.app",
+    "linkLabel": "Visit website",
+    "details": [
+      "Ijebu garri, palm oil, and foodstuffs",
+      "Product-led visual storytelling",
+      "Custom branded pack enquiries",
+      "Responsive brand and contact pages"
+    ],
+    "number": "04"
   },
   {
-    id: 'blaykik',
-    number: '05',
-    title: 'Blaykik Store',
-    type: 'Brand showcase',
-    status: 'Complete build',
-    category: 'Commerce',
-    year: '2026',
-    description: 'A cream-and-dark-green product showcase for an authentic Nigerian food brand operating across Abuja and Atlanta.',
-    tags: ['React', 'Vite', 'Branding', 'Responsive UI'],
-    accent: 'green',
-    visual: 'blaykik',
-    link: 'https://www.instagram.com/blaykik_store/',
-    linkLabel: 'View brand',
-    details: ['Premium Ijebu garri and palm oil', 'Product-led visual storytelling', 'Custom branding presentation', 'Instagram-led contact journey'],
+    "id": "akapsys",
+    "title": "Akapsys Consultancy",
+    "type": "Service website",
+    "status": "Website built",
+    "category": "Client work",
+    "description": "A consultancy website that helps manufacturers, importers, and brand owners understand product registration and prepare their next steps.",
+    "tags": [
+      "React",
+      "CSS",
+      "UX writing",
+      "Responsive UI"
+    ],
+    "accent": "teal",
+    "visual": "akapsys",
+    "repository": "salzyff/project2",
+    "link": "https://project2-nine-rho.vercel.app",
+    "linkLabel": "Visit website",
+    "details": [
+      "Product-specific regulatory pathways",
+      "Services and process sections",
+      "FAQ and contact pathways",
+      "Documentation and registration guidance"
+    ],
+    "number": "05"
   },
   {
-    id: 'akapsys',
-    number: '06',
-    title: 'Akapsys Consultancy',
-    type: 'Service website',
-    status: 'Shipped',
-    category: 'Client work',
-    year: '2026',
-    description: 'A conversion-focused consultancy website for product registration in Nigeria, built to make the process feel clear and approachable.',
-    tags: ['React', 'CSS', 'UX writing', 'NAFDAC'],
-    accent: 'teal',
-    visual: 'akapsys',
-    link: 'https://project2-nine-rho.vercel.app/',
-    linkLabel: 'Visit website',
-    details: ['Services and process sections', 'FAQ and contact pathways', 'Registration-focused messaging', 'WhatsApp call-to-action'],
+    "id": "wearayo",
+    "title": "WearAyo",
+    "type": "Sneaker storefront concept",
+    "status": "Mockup",
+    "category": "Commerce",
+    "description": "A sneaker storefront mockup with brand-new and pre-loved collections, a shopping bag, and a sample WhatsApp order flow.",
+    "tags": [
+      "React",
+      "Vite",
+      "Storefront",
+      "Responsive UI"
+    ],
+    "accent": "orange",
+    "visual": "fashion",
+    "repository": "salzyff/wearayo",
+    "link": "https://wearayo.vercel.app",
+    "linkLabel": "Visit mockup",
+    "details": [
+      "Brand-new and pre-loved sneaker filters",
+      "Add and remove pairs from the bag",
+      "Sample WhatsApp order flow",
+      "Responsive navigation and signup feedback"
+    ],
+    "number": "06"
   },
   {
-    id: 'banking',
-    number: '07',
-    title: 'Banking App',
-    type: 'Fintech interface',
-    status: 'Complete demo',
-    category: 'Product',
-    year: '2026',
-    description: 'A polished React banking dashboard exploring balances, transfers, transactions, and the everyday rhythm of a financial app.',
-    tags: ['React', 'Vite', 'Tailwind', 'UI systems'],
-    accent: 'cyan',
-    visual: 'banking',
-    link: null,
-    linkLabel: 'View build',
-    details: ['Dashboard and account views', 'Sample transaction data', 'Responsive fintech layout', 'Local demo mode'],
+    "id": "monica",
+    "title": "Monica Seafood",
+    "type": "Seafood storefront concept",
+    "status": "Concept build",
+    "category": "Commerce",
+    "description": "A seafood and Nigerian pantry storefront with product filters, an enquiry basket, and a WhatsApp flow for confirming prices and availability.",
+    "tags": [
+      "React",
+      "Vite",
+      "Local storage",
+      "WhatsApp"
+    ],
+    "accent": "teal",
+    "visual": "seafood",
+    "repository": "salzyff/monica-seafood",
+    "link": "https://monica-seafood.vercel.app",
+    "linkLabel": "Visit website",
+    "details": [
+      "Seafood and pantry product filters",
+      "Persistent basket and quantity controls",
+      "Delivery details and product preferences",
+      "WhatsApp availability and price enquiries"
+    ],
+    "number": "07"
   },
+  {
+    "id": "ejire",
+    "title": "Ejire Onigarri",
+    "type": "Food brand website concept",
+    "status": "Concept build",
+    "category": "Commerce",
+    "description": "A plum-and-blush website concept for a Nigerian garri brand, with product collections, serving ideas, souvenir requests, and an enquiry bag.",
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "WhatsApp"
+    ],
+    "accent": "rose",
+    "visual": "garri",
+    "repository": "salzyff/ejiregarri",
+    "link": "https://ejiregarri.vercel.app",
+    "linkLabel": "Visit website",
+    "details": [
+      "Product collections and founder story",
+      "Serving-idea tabs and FAQ",
+      "Souvenir and bulk enquiry forms",
+      "Persistent bag with WhatsApp and email enquiries"
+    ],
+    "number": "08"
+  },
+  {
+    "id": "quantum-leap",
+    "title": "Quantum Leap Schools",
+    "type": "School website concept",
+    "status": "Concept build",
+    "category": "Education",
+    "description": "A school website concept for Quantum Leap Schools in Ikorodu, presenting learning pathways, school life, and admissions enquiries.",
+    "tags": [
+      "React",
+      "Vite",
+      "Admissions",
+      "Responsive UI"
+    ],
+    "accent": "cyan",
+    "visual": "school",
+    "repository": "salzyff/zoe-palm-oil",
+    "link": "https://zoe-palm-oil.vercel.app",
+    "linkLabel": "Visit website",
+    "details": [
+      "Early years, primary, and secondary pathways",
+      "Curriculum and school-life sections",
+      "School gallery and news links",
+      "Admissions enquiries through WhatsApp"
+    ],
+    "number": "09"
+  },
+  {
+    "id": "salamport",
+    "title": "Earlier Portfolio",
+    "type": "Personal website",
+    "status": "Earlier version",
+    "category": "Personal",
+    "description": "An earlier portfolio website presenting my work, skills, and journey, built with HTML, CSS, and JavaScript.",
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive UI"
+    ],
+    "accent": "violet",
+    "visual": "portfolio",
+    "repository": "salzyff/salamport",
+    "link": "https://salamport-eight.vercel.app",
+    "linkLabel": "Visit portfolio",
+    "details": [
+      "Work, skills, and about sections",
+      "Project and journey filters",
+      "Animated interface and mobile navigation",
+      "Contact section"
+    ],
+    "number": "10"
+  }
 ]
 
-const filters = ['All', 'Product', 'Education', 'Commerce', 'Client work']
+const projectCount = String(projects.length).padStart(2, '0')
+const filters = ['All', ...new Set(projects.map((project) => project.category))]
 
 function App() {
   const [activeFilter, setActiveFilter] = useState('All')
@@ -199,7 +350,7 @@ function App() {
               </div>
             </div>
             <div className="floating-tag tag-one"><Sparkles size={14} /> ideas → interface</div>
-            <div className="floating-tag tag-two">01—07 <span>selected projects</span></div>
+            <div className="floating-tag tag-two">01—{projectCount} <span>selected projects</span></div>
           </div>
         </section>
 
@@ -210,7 +361,7 @@ function App() {
         <section className="work section-pad" id="work">
           <div className="section-heading">
             <div><p className="kicker">Selected work / 2026</p><h2>Things I’ve <em>built.</em></h2></div>
-            <p className="section-note">A mix of real products, client-facing websites, and experiments that helped me get better at making the web feel more useful.</p>
+            <p className="section-note">Web apps, brand websites, and storefront concepts — all with repositories in my GitHub account.</p>
           </div>
           <div className="filter-row" role="tablist" aria-label="Filter projects">
             {filters.map((filter) => <button key={filter} className={activeFilter === filter ? 'filter active' : 'filter'} onClick={() => setActiveFilter(filter)}>{filter}</button>)}
@@ -227,7 +378,7 @@ function App() {
             <h2>More than just<br /><em>pretty screens.</em></h2>
             <p>I care about the moment a product stops feeling like an idea and starts feeling real. My work usually sits at the intersection of good interface design, clear user journeys, and technology that actually solves something.</p>
             <p>From school systems and AI tools to commerce brands and trade infrastructure, I like building across different worlds — and learning what each one needs.</p>
-            <div className="about-facts"><span><strong>07</strong> projects explored</span><span><strong>React</strong> main toolkit</span><span><strong>NG</strong> building from Nigeria</span></div>
+            <div className="about-facts"><span><strong>{projectCount}</strong> repositories featured</span><span><strong>React</strong> main toolkit</span><span><strong>NG</strong> building from Nigeria</span></div>
           </div>
         </section>
 
@@ -257,7 +408,7 @@ function ProjectModal({ project, onClose }) {
   return <div className="modal-backdrop" onClick={onClose}><div className={`modal accent-${project.accent}`} onClick={(event) => event.stopPropagation()} role="dialog" aria-modal="true" aria-label={`${project.title} details`}>
     <button className="modal-close" onClick={onClose} aria-label="Close project details"><X size={20} /></button>
     <div className="modal-visual"><ProjectVisual type={project.visual} large /></div>
-    <div className="modal-body"><p className="kicker">{project.number} / {project.type}</p><h2>{project.title}</h2>{project.oldTitle && <p className="old-title">Previously called {project.oldTitle}</p>}<p className="modal-description">{project.description}</p><div className="details-list">{project.details.map((detail) => <span key={detail}><Check size={15} />{detail}</span>)}</div><div className="modal-bottom"><div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{project.link ? <a className="button button-primary" href={project.link} target="_blank" rel="noreferrer">{project.linkLabel} <ExternalLink size={16} /></a> : <button className="button button-primary" onClick={onClose}>Close details <X size={16} /></button>}</div></div>
+    <div className="modal-body"><p className="kicker">{project.number} / {project.type}</p><h2>{project.title}</h2>{project.oldTitle && <p className="old-title">Previously called {project.oldTitle}</p>}<p className="modal-description">{project.description}</p><div className="details-list">{project.details.map((detail) => <span key={detail}><Check size={15} />{detail}</span>)}</div><div className="modal-bottom">{project.privateSource ? <p className="source-note">Source code is in a private GitHub repository.</p> : <a className="source-link" href={`https://github.com/${project.repository}`} target="_blank" rel="noreferrer">View GitHub repository <ExternalLink size={14} /></a>}<div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{project.link ? <a className="button button-primary" href={project.link} target="_blank" rel="noreferrer">{project.linkLabel} <ExternalLink size={16} /></a> : <button className="button button-primary" onClick={onClose}>Close details <X size={16} /></button>}</div></div>
   </div></div>
 }
 
@@ -269,7 +420,20 @@ function ProjectVisual({ type, large = false }) {
   if (type === 'blaykik') return <div className={`visual-window blaykik ${large ? 'large' : ''}`}><div className="blay-top"><small>ABUJA ↔ ATLANTA</small><span>BLAYKIK</span></div><div className="blay-product"><div className="blay-bowl">✽</div><div><strong>AUTHENTIC<br />NIGERIAN<br />FLAVOURS</strong><small>PREMIUM IJEBU GARRI</small></div></div></div>
   if (type === 'akapsys') return <div className={`visual-window akapsys ${large ? 'large' : ''}`}><div className="aka-top"><span>A</span><b>AKAPSYS<br /><small>CONSULTANCY</small></b></div><div className="aka-copy"><small>PRODUCT REGISTRATION</small><strong>Get your product<br />ready for market.</strong><div className="aka-line" /></div></div>
   if (type === 'banking') return <div className={`visual-window banking ${large ? 'large' : ''}`}><div className="bank-head"><span>OVERVIEW</span><b>₦2,840,500</b></div><div className="bank-chart"><i /><i /><i /><i /><i /><i /><i /><i /></div><div className="bank-bottom"><span>Money in <b>+₦850k</b></span><span>Money out <b>-₦210k</b></span></div></div>
-  return null
+  const showcase = {
+    fashion: { name: 'WEARAYO', label: 'SNEAKER STOREFRONT', headline: 'Your next pair.', note: 'Brand new / pre-loved', icon: 'wear' },
+    seafood: { name: 'MONICA SEAFOOD', label: 'SEAFOOD & PANTRY', headline: 'Good food starts here.', note: 'Browse / enquire / cook', icon: 'food' },
+    garri: { name: 'EJIRE ONIGARRI', label: 'NIGERIAN ROOTS', headline: 'Garri, with love.', note: 'Everyday staples / thoughtful gifts', icon: 'food' },
+    school: { name: 'QUANTUM LEAP', label: 'SCHOOLS · IKORODU', headline: 'Potential takes flight.', note: 'Early years / primary / secondary', icon: 'school' },
+    portfolio: { name: 'AKAPO ABDUL SALAM', label: 'EARLIER PORTFOLIO', headline: 'Creative developer.', note: 'Work / skills / journey', icon: 'code' },
+  }[type]
+  if (!showcase) return null
+  const Icon = { wear: Layers3, food: BriefcaseBusiness, school: Globe2, code: Code2 }[showcase.icon]
+  return <div className={`visual-window showcase showcase-${type} ${large ? 'large' : ''}`}>
+    <div className="showcase-top"><span>{showcase.name}</span><Icon size={22} /></div>
+    <div className="showcase-copy"><small>{showcase.label}</small><strong>{showcase.headline}</strong><span>{showcase.note}</span></div>
+    <div className="showcase-shape" aria-hidden="true"><Icon size={80} strokeWidth={1} /></div>
+  </div>
 }
 
 createRoot(document.getElementById('root')).render(<App />)
