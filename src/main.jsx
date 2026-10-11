@@ -3,16 +3,11 @@ import { createRoot } from 'react-dom/client'
 import {
   ArrowDownRight,
   ArrowUpRight,
-  BriefcaseBusiness,
   Check,
   ChevronRight,
-  Code2,
   ExternalLink,
-  Globe2,
-  Layers3,
   Menu,
   MoveUpRight,
-  Sparkles,
   X,
 } from 'lucide-react'
 import './styles.css'
@@ -42,7 +37,9 @@ const projects = [
       "Digital shipment passport",
       "Rules explorer and corridor simulator"
     ],
-    "number": "01"
+    "number": "01",
+    "image": "/images/projects/waypoint.jpg",
+    "imageAlt": "WAYPOINT website screenshot"
   },
   {
     "id": "study-ai",
@@ -68,7 +65,9 @@ const projects = [
       "Study plans, notes, and flashcards",
       "Interactive quizzes and learning progress"
     ],
-    "number": "02"
+    "number": "02",
+    "image": "/images/projects/study-ai.jpg",
+    "imageAlt": "Study AI website screenshot"
   },
   {
     "id": "examora",
@@ -94,7 +93,9 @@ const projects = [
       "Question bank and assessment builder",
       "Report cards and learning resources"
     ],
-    "number": "03"
+    "number": "03",
+    "image": "/images/projects/examora.jpg",
+    "imageAlt": "Examora sign-in page screenshot"
   },
   {
     "id": "blaykik",
@@ -120,7 +121,9 @@ const projects = [
       "Custom branded pack enquiries",
       "Responsive brand and contact pages"
     ],
-    "number": "04"
+    "number": "04",
+    "image": "/images/projects/blaykik.jpg",
+    "imageAlt": "Blaykik Store website screenshot"
   },
   {
     "id": "akapsys",
@@ -145,7 +148,9 @@ const projects = [
       "FAQ and contact pathways",
       "Documentation and registration guidance"
     ],
-    "number": "05"
+    "number": "05",
+    "image": "/images/projects/akapsys.jpg",
+    "imageAlt": "Akapsys Consultancy website screenshot"
   },
   {
     "id": "wearayo",
@@ -170,7 +175,9 @@ const projects = [
       "Sample WhatsApp order flow",
       "Responsive navigation and signup feedback"
     ],
-    "number": "06"
+    "number": "06",
+    "image": "/images/projects/wearayo.jpg",
+    "imageAlt": "WearAyo website screenshot"
   },
   {
     "id": "monica",
@@ -195,7 +202,9 @@ const projects = [
       "Delivery details and product preferences",
       "WhatsApp availability and price enquiries"
     ],
-    "number": "07"
+    "number": "07",
+    "image": "/images/projects/monica.jpg",
+    "imageAlt": "Monica Seafood website screenshot"
   },
   {
     "id": "ejire",
@@ -220,7 +229,9 @@ const projects = [
       "Souvenir and bulk enquiry forms",
       "Persistent bag with WhatsApp and email enquiries"
     ],
-    "number": "08"
+    "number": "08",
+    "image": "/images/projects/ejire.jpg",
+    "imageAlt": "Ejire Onigarri website screenshot"
   }
 ]
 
@@ -276,21 +287,12 @@ function App() {
               <button className="text-button" onClick={() => scrollTo('about')}>A little about me <ChevronRight size={16} /></button>
             </div>
           </div>
-          <div className="hero-art" aria-hidden="true">
-            <div className="orb orb-one" />
-            <div className="orb orb-two" />
-            <div className="hero-grid" />
-            <div className="code-card">
-              <div className="code-card-top"><span /><span /><span /><b>build.js</b></div>
-              <div className="code-lines">
-                <span><i>01</i> <strong>const</strong> idea = <mark>“worth building”</mark></span>
-                <span><i>02</i> <strong>const</strong> stack = [<mark>“react”</mark>, <mark>“care”</mark>]</span>
-                <span><i>03</i> </span>
-                <span><i>04</i> <strong>return</strong> <mark>ship(idea)</mark></span>
-              </div>
-            </div>
-            <div className="floating-tag tag-one"><Sparkles size={14} /> ideas → interface</div>
-            <div className="floating-tag tag-two">01—{projectCount} <span>selected projects</span></div>
+          <div className="hero-art hero-portrait">
+            <figure className="portrait-frame">
+              <img src="/images/akapo-abdul-salam.jpg" alt="Akapo Abdul Salam" width="1080" height="1920" fetchPriority="high" decoding="async" />
+              <figcaption><span>AKAPO ABDUL SALAM</span><small>React developer · Nigeria</small></figcaption>
+            </figure>
+            <div className="portrait-projects"><strong>{projectCount}</strong><span>selected projects</span></div>
           </div>
         </section>
 
@@ -339,7 +341,7 @@ function App() {
 
 function ProjectCard({ project, onOpen }) {
   return <article className={`project-card accent-${project.accent}`} onClick={() => onOpen(project)} tabIndex="0" onKeyDown={(event) => event.key === 'Enter' && onOpen(project)}>
-    <div className="card-visual"><ProjectVisual type={project.visual} /><span className="card-number">{project.number}</span><span className="open-card"><MoveUpRight size={18} /></span></div>
+    <div className="card-visual"><ProjectVisual project={project} /><span className="card-number">{project.number}</span><span className="open-card"><MoveUpRight size={18} /></span></div>
     <div className="card-content"><div className="card-meta"><span>{project.type}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
   </article>
 }
@@ -347,31 +349,13 @@ function ProjectCard({ project, onOpen }) {
 function ProjectModal({ project, onClose }) {
   return <div className="modal-backdrop" onClick={onClose}><div className={`modal accent-${project.accent}`} onClick={(event) => event.stopPropagation()} role="dialog" aria-modal="true" aria-label={`${project.title} details`}>
     <button className="modal-close" onClick={onClose} aria-label="Close project details"><X size={20} /></button>
-    <div className="modal-visual"><ProjectVisual type={project.visual} large /></div>
+    <div className="modal-visual"><ProjectVisual project={project} large /></div>
     <div className="modal-body"><p className="kicker">{project.number} / {project.type}</p><h2>{project.title}</h2>{project.oldTitle && <p className="old-title">Previously called {project.oldTitle}</p>}<p className="modal-description">{project.description}</p><div className="details-list">{project.details.map((detail) => <span key={detail}><Check size={15} />{detail}</span>)}</div><div className="modal-bottom">{project.privateSource ? <p className="source-note">Source code is in a private GitHub repository.</p> : <a className="source-link" href={`https://github.com/${project.repository}`} target="_blank" rel="noreferrer">View GitHub repository <ExternalLink size={14} /></a>}<div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{project.link ? <a className="button button-primary" href={project.link} target="_blank" rel="noreferrer">{project.linkLabel} <ExternalLink size={16} /></a> : <button className="button button-primary" onClick={onClose}>Close details <X size={16} /></button>}</div></div>
   </div></div>
 }
 
-function ProjectVisual({ type, large = false }) {
-  if (type === 'waypoint') return <div className={`visual-window waypoint ${large ? 'large' : ''}`}><div className="visual-top"><span>WAYPOINT</span><i>ready to compile</i></div><div className="waypoint-body"><div className="route-line"><b>LAGOS</b><span /><b>ACCRA</b></div><div className="compile-status"><strong>SHIPMENT READY</strong><small>12 checks passed · 0 blockers</small></div><div className="mini-bars"><i /><i /><i /><i /></div></div></div>
-  if (type === 'study') return <div className={`visual-window study ${large ? 'large' : ''}`}><div className="study-head"><div className="study-avatar">S</div><span>Good afternoon, Salzy</span><b>92%</b></div><div className="study-tiles"><div><small>STUDY STREAK</small><strong>12 days</strong></div><div><small>AI SESSIONS</small><strong>24</strong></div></div><div className="study-chart"><span /><span /><span /><span /><span /><span /><span /><i /></div></div>
-  if (type === 'examora') return <div className={`visual-window examora ${large ? 'large' : ''}`}><div className="exam-head"><span>EXAMORA</span><i>student dashboard</i></div><div className="exam-body"><div className="exam-ring"><strong>78</strong><small>average</small></div><div className="exam-list"><span><i />Mathematics <b>84%</b></span><span><i />English Language <b>76%</b></span><span><i />Physics <b>73%</b></span></div></div></div>
-  if (type === 'store') return <div className={`visual-window store ${large ? 'large' : ''}`}><div className="store-head"><span>SALAM’S<br /><b>STORE</b></span><i>fresh picks, local favourites</i></div><div className="store-product"><div className="bag-shape">✦</div><div><small>HOUSE FAVOURITE</small><strong>Golden Penny<br />Pasta</strong><b>₦1,650</b></div></div></div>
-  if (type === 'blaykik') return <div className={`visual-window blaykik ${large ? 'large' : ''}`}><div className="blay-top"><small>ABUJA ↔ ATLANTA</small><span>BLAYKIK</span></div><div className="blay-product"><div className="blay-bowl">✽</div><div><strong>AUTHENTIC<br />NIGERIAN<br />FLAVOURS</strong><small>PREMIUM IJEBU GARRI</small></div></div></div>
-  if (type === 'akapsys') return <div className={`visual-window akapsys ${large ? 'large' : ''}`}><div className="aka-top"><span>A</span><b>AKAPSYS<br /><small>CONSULTANCY</small></b></div><div className="aka-copy"><small>PRODUCT REGISTRATION</small><strong>Get your product<br />ready for market.</strong><div className="aka-line" /></div></div>
-  if (type === 'banking') return <div className={`visual-window banking ${large ? 'large' : ''}`}><div className="bank-head"><span>OVERVIEW</span><b>₦2,840,500</b></div><div className="bank-chart"><i /><i /><i /><i /><i /><i /><i /><i /></div><div className="bank-bottom"><span>Money in <b>+₦850k</b></span><span>Money out <b>-₦210k</b></span></div></div>
-  const showcase = {
-    fashion: { name: 'WEARAYO', label: 'SNEAKER STOREFRONT', headline: 'Your next pair.', note: 'Brand new / pre-loved', icon: 'wear' },
-    seafood: { name: 'MONICA SEAFOOD', label: 'SEAFOOD & PANTRY', headline: 'Good food starts here.', note: 'Browse / enquire / cook', icon: 'food' },
-    garri: { name: 'EJIRE ONIGARRI', label: 'NIGERIAN ROOTS', headline: 'Garri, with love.', note: 'Everyday staples / thoughtful gifts', icon: 'food' },
-  }[type]
-  if (!showcase) return null
-  const Icon = { wear: Layers3, food: BriefcaseBusiness, school: Globe2, code: Code2 }[showcase.icon]
-  return <div className={`visual-window showcase showcase-${type} ${large ? 'large' : ''}`}>
-    <div className="showcase-top"><span>{showcase.name}</span><Icon size={22} /></div>
-    <div className="showcase-copy"><small>{showcase.label}</small><strong>{showcase.headline}</strong><span>{showcase.note}</span></div>
-    <div className="showcase-shape" aria-hidden="true"><Icon size={80} strokeWidth={1} /></div>
-  </div>
+function ProjectVisual({ project, large = false }) {
+  return <img className={large ? 'project-screenshot large' : 'project-screenshot'} src={project.image} alt={project.imageAlt} width="1348" height="926" loading={large ? 'eager' : 'lazy'} decoding="async" />
 }
 
 createRoot(document.getElementById('root')).render(<App />)
