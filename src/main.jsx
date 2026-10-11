@@ -35,7 +35,7 @@ const projects = [
     "accent": "lime",
     "visual": "waypoint",
     "repository": "salzyff/Waypoint",
-    "link": "https://waypoint-drab-theta.vercel.app",
+    "link": "https://waypointdemo.vercel.app",
     "linkLabel": "Visit Waypoint",
     "details": [
       "Shipment readiness checks",
@@ -62,7 +62,7 @@ const projects = [
     "visual": "study",
     "repository": "salzyff/ai-study-assistant",
     "privateSource": true,
-    "link": "https://studyai.name.ng",
+    "link": "https://www.studyai.name.ng",
     "linkLabel": "Visit Study AI",
     "details": [
       "AI chat with conversation memory",
@@ -116,7 +116,7 @@ const projects = [
     "visual": "blaykik",
     "repository": "salzyff/blaykik-store",
     "privateSource": true,
-    "link": "https://blaykik-store.vercel.app",
+    "link": "https://blaykik-preview.vercel.app",
     "linkLabel": "Visit website",
     "details": [
       "Ijebu garri, palm oil, and foodstuffs",
@@ -142,7 +142,7 @@ const projects = [
     "accent": "teal",
     "visual": "akapsys",
     "repository": "salzyff/project2",
-    "link": "https://project2-nine-rho.vercel.app",
+    "link": "https://project267.vercel.app",
     "linkLabel": "Visit website",
     "details": [
       "Product-specific regulatory pathways",
@@ -156,9 +156,9 @@ const projects = [
     "id": "wearayo",
     "title": "WearAyo",
     "type": "Sneaker storefront concept",
-    "status": "Mockup",
+    "status": "Website built",
     "category": "Commerce",
-    "description": "A sneaker storefront mockup with brand-new and pre-loved collections, a shopping bag, and a sample WhatsApp order flow.",
+    "description": "A sneaker storefront with brand-new and pre-loved collections, a shopping bag, and a sample WhatsApp order flow.",
     "tags": [
       "React",
       "Vite",
@@ -169,7 +169,7 @@ const projects = [
     "visual": "fashion",
     "repository": "salzyff/wearayo",
     "link": "https://wearayo.vercel.app",
-    "linkLabel": "Visit mockup",
+    "linkLabel": "Visit website",
     "details": [
       "Brand-new and pre-loved sneaker filters",
       "Add and remove pairs from the bag",
@@ -246,7 +246,7 @@ const projects = [
     "accent": "cyan",
     "visual": "school",
     "repository": "salzyff/zoe-palm-oil",
-    "link": "https://zoe-palm-oil.vercel.app",
+    "link": "https://quantumleapschool.vercel.app",
     "linkLabel": "Visit website",
     "details": [
       "Early years, primary, and secondary pathways",
@@ -272,7 +272,7 @@ const projects = [
     "accent": "violet",
     "visual": "portfolio",
     "repository": "salzyff/salamport",
-    "link": "https://salamport-eight.vercel.app",
+    "link": "https://salamakapo.vercel.app",
     "linkLabel": "Visit portfolio",
     "details": [
       "Work, skills, and about sections",
