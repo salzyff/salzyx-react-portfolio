@@ -23,7 +23,6 @@ const projects = [
     "title": "WAYPOINT",
     "oldTitle": "PASSAGE",
     "type": "Trade compliance platform",
-    "status": "Prototype",
     "category": "Product",
     "description": "A trade-compliance tool that helps African businesses check shipment readiness, resolve blockers, and compile a digital shipment passport.",
     "tags": [
@@ -49,7 +48,6 @@ const projects = [
     "id": "study-ai",
     "title": "Study AI",
     "type": "AI learning platform",
-    "status": "MVP built",
     "category": "Education",
     "description": "A study assistant with AI chat, conversation memory, study plans, quizzes, flashcards, notes, and progress tracking.",
     "tags": [
@@ -76,7 +74,6 @@ const projects = [
     "id": "examora",
     "title": "Examora",
     "type": "Exam management system",
-    "status": "Complete build",
     "category": "Education",
     "description": "An exam application for students, teachers, and administrators, with assessments, question banks, results, and school dashboards.",
     "tags": [
@@ -103,7 +100,6 @@ const projects = [
     "id": "blaykik",
     "title": "Blaykik Store",
     "type": "Food brand storefront",
-    "status": "Website built",
     "category": "Commerce",
     "description": "A product-led website for a Nigerian food brand, showcasing Ijebu garri, palm oil, pantry staples, and custom branded packs.",
     "tags": [
@@ -130,7 +126,6 @@ const projects = [
     "id": "akapsys",
     "title": "Akapsys Consultancy",
     "type": "Service website",
-    "status": "Website built",
     "category": "Client work",
     "description": "A consultancy website that helps manufacturers, importers, and brand owners understand product registration and prepare their next steps.",
     "tags": [
@@ -155,8 +150,7 @@ const projects = [
   {
     "id": "wearayo",
     "title": "WearAyo",
-    "type": "Sneaker storefront concept",
-    "status": "Website built",
+    "type": "Sneaker storefront",
     "category": "Commerce",
     "description": "A sneaker storefront with brand-new and pre-loved collections, a shopping bag, and a sample WhatsApp order flow.",
     "tags": [
@@ -181,8 +175,7 @@ const projects = [
   {
     "id": "monica",
     "title": "Monica Seafood",
-    "type": "Seafood storefront concept",
-    "status": "Concept build",
+    "type": "Seafood storefront",
     "category": "Commerce",
     "description": "A seafood and Nigerian pantry storefront with product filters, an enquiry basket, and a WhatsApp flow for confirming prices and availability.",
     "tags": [
@@ -207,10 +200,9 @@ const projects = [
   {
     "id": "ejire",
     "title": "Ejire Onigarri",
-    "type": "Food brand website concept",
-    "status": "Concept build",
+    "type": "Food brand website",
     "category": "Commerce",
-    "description": "A plum-and-blush website concept for a Nigerian garri brand, with product collections, serving ideas, souvenir requests, and an enquiry bag.",
+    "description": "A plum-and-blush website for a Nigerian garri brand, with product collections, serving ideas, souvenir requests, and an enquiry bag.",
     "tags": [
       "HTML",
       "CSS",
@@ -229,58 +221,6 @@ const projects = [
       "Persistent bag with WhatsApp and email enquiries"
     ],
     "number": "08"
-  },
-  {
-    "id": "quantum-leap",
-    "title": "Quantum Leap Schools",
-    "type": "School website concept",
-    "status": "Concept build",
-    "category": "Education",
-    "description": "A school website concept for Quantum Leap Schools in Ikorodu, presenting learning pathways, school life, and admissions enquiries.",
-    "tags": [
-      "React",
-      "Vite",
-      "Admissions",
-      "Responsive UI"
-    ],
-    "accent": "cyan",
-    "visual": "school",
-    "repository": "salzyff/zoe-palm-oil",
-    "link": "https://quantumleapschool.vercel.app",
-    "linkLabel": "Visit website",
-    "details": [
-      "Early years, primary, and secondary pathways",
-      "Curriculum and school-life sections",
-      "School gallery and news links",
-      "Admissions enquiries through WhatsApp"
-    ],
-    "number": "09"
-  },
-  {
-    "id": "salamport",
-    "title": "Earlier Portfolio",
-    "type": "Personal website",
-    "status": "Earlier version",
-    "category": "Personal",
-    "description": "An earlier portfolio website presenting my work, skills, and journey, built with HTML, CSS, and JavaScript.",
-    "tags": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Responsive UI"
-    ],
-    "accent": "violet",
-    "visual": "portfolio",
-    "repository": "salzyff/salamport",
-    "link": "https://salamakapo.vercel.app",
-    "linkLabel": "Visit portfolio",
-    "details": [
-      "Work, skills, and about sections",
-      "Project and journey filters",
-      "Animated interface and mobile navigation",
-      "Contact section"
-    ],
-    "number": "10"
   }
 ]
 
@@ -361,7 +301,7 @@ function App() {
         <section className="work section-pad" id="work">
           <div className="section-heading">
             <div><p className="kicker">Selected work / 2026</p><h2>Things I’ve <em>built.</em></h2></div>
-            <p className="section-note">Web apps, brand websites, and storefront concepts — all with repositories in my GitHub account.</p>
+            <p className="section-note">Web apps, brand websites, and storefronts — all with repositories in my GitHub account.</p>
           </div>
           <div className="filter-row" role="tablist" aria-label="Filter projects">
             {filters.map((filter) => <button key={filter} className={activeFilter === filter ? 'filter active' : 'filter'} onClick={() => setActiveFilter(filter)}>{filter}</button>)}
@@ -400,7 +340,7 @@ function App() {
 function ProjectCard({ project, onOpen }) {
   return <article className={`project-card accent-${project.accent}`} onClick={() => onOpen(project)} tabIndex="0" onKeyDown={(event) => event.key === 'Enter' && onOpen(project)}>
     <div className="card-visual"><ProjectVisual type={project.visual} /><span className="card-number">{project.number}</span><span className="open-card"><MoveUpRight size={18} /></span></div>
-    <div className="card-content"><div className="card-meta"><span>{project.type}</span><span className="status"><i />{project.status}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
+    <div className="card-content"><div className="card-meta"><span>{project.type}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
   </article>
 }
 
@@ -424,8 +364,6 @@ function ProjectVisual({ type, large = false }) {
     fashion: { name: 'WEARAYO', label: 'SNEAKER STOREFRONT', headline: 'Your next pair.', note: 'Brand new / pre-loved', icon: 'wear' },
     seafood: { name: 'MONICA SEAFOOD', label: 'SEAFOOD & PANTRY', headline: 'Good food starts here.', note: 'Browse / enquire / cook', icon: 'food' },
     garri: { name: 'EJIRE ONIGARRI', label: 'NIGERIAN ROOTS', headline: 'Garri, with love.', note: 'Everyday staples / thoughtful gifts', icon: 'food' },
-    school: { name: 'QUANTUM LEAP', label: 'SCHOOLS · IKORODU', headline: 'Potential takes flight.', note: 'Early years / primary / secondary', icon: 'school' },
-    portfolio: { name: 'AKAPO ABDUL SALAM', label: 'EARLIER PORTFOLIO', headline: 'Creative developer.', note: 'Work / skills / journey', icon: 'code' },
   }[type]
   if (!showcase) return null
   const Icon = { wear: Layers3, food: BriefcaseBusiness, school: Globe2, code: Code2 }[showcase.icon]
