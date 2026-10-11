@@ -287,12 +287,16 @@ function App() {
               <button className="text-button" onClick={() => scrollTo('about')}>A little about me <ChevronRight size={16} /></button>
             </div>
           </div>
-          <div className="hero-art hero-portrait">
+          <div className="hero-portrait">
             <figure className="portrait-frame">
-              <img src="/images/akapo-abdul-salam.jpg" alt="Akapo Abdul Salam" width="1080" height="1920" fetchPriority="high" decoding="async" />
-              <figcaption><span>AKAPO ABDUL SALAM</span><small>React developer · Nigeria</small></figcaption>
+              <div className="portrait-photo">
+                <img src="/images/akapo-abdul-salam.jpg" alt="Akapo Abdul Salam" width="1122" height="1402" fetchPriority="high" decoding="async" />
+              </div>
+              <figcaption>
+                <div className="portrait-identity"><span>AKAPO ABDUL SALAM</span><small>React developer · Nigeria</small></div>
+                <div className="portrait-projects"><strong>{projectCount}</strong><span>projects</span></div>
+              </figcaption>
             </figure>
-            <div className="portrait-projects"><strong>{projectCount}</strong><span>selected projects</span></div>
           </div>
         </section>
 
