@@ -1,365 +1,85 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import {
-  ArrowDownRight,
-  ArrowUpRight,
-  Check,
-  ChevronRight,
-  ExternalLink,
-  Menu,
-  MoveUpRight,
-  X,
-} from 'lucide-react'
+import { ArrowDown, ArrowDownRight, ArrowUpRight, ArrowRight, Plus, X, Menu, Check, Search } from 'lucide-react'
+import { projects } from './projects'
 import './styles.css'
 
-const projects = [
-  {
-    "id": "waypoint",
-    "title": "WAYPOINT",
-    "oldTitle": "PASSAGE",
-    "type": "Trade compliance platform",
-    "category": "Product",
-    "description": "A trade-compliance tool that helps African businesses check shipment readiness, resolve blockers, and compile a digital shipment passport.",
-    "tags": [
-      "React",
-      "TypeScript",
-      "Supabase",
-      "Gemini"
-    ],
-    "accent": "lime",
-    "visual": "waypoint",
-    "repository": "salzyff/Waypoint",
-    "link": "https://waypointdemo.vercel.app",
-    "linkLabel": "Visit Waypoint",
-    "details": [
-      "Shipment readiness checks",
-      "Blocker detection and resolution",
-      "Digital shipment passport",
-      "Rules explorer and corridor simulator"
-    ],
-    "number": "01",
-    "image": "/images/projects/waypoint.jpg",
-    "imageAlt": "WAYPOINT website screenshot"
-  },
-  {
-    "id": "study-ai",
-    "title": "Study AI",
-    "type": "AI learning platform",
-    "category": "Education",
-    "description": "A study assistant with AI chat, conversation memory, study plans, quizzes, flashcards, notes, and progress tracking.",
-    "tags": [
-      "React",
-      "Node.js",
-      "Supabase",
-      "Gemini"
-    ],
-    "accent": "blue",
-    "visual": "study",
-    "repository": "salzyff/ai-study-assistant",
-    "privateSource": true,
-    "link": "https://www.studyai.name.ng",
-    "linkLabel": "Visit Study AI",
-    "details": [
-      "AI chat with conversation memory",
-      "Private chat history and user accounts",
-      "Study plans, notes, and flashcards",
-      "Interactive quizzes and learning progress"
-    ],
-    "number": "02",
-    "image": "/images/projects/study-ai.jpg",
-    "imageAlt": "Study AI website screenshot"
-  },
-  {
-    "id": "examora",
-    "title": "Examora",
-    "type": "Exam management system",
-    "category": "Education",
-    "description": "An exam application for students, teachers, and administrators, with assessments, question banks, results, and school dashboards.",
-    "tags": [
-      "React",
-      "Supabase",
-      "Auth",
-      "Vercel"
-    ],
-    "accent": "violet",
-    "visual": "examora",
-    "repository": "salzyff/Examora",
-    "privateSource": true,
-    "link": "https://examora-navy.vercel.app",
-    "linkLabel": "Visit Examora",
-    "details": [
-      "Student, teacher, and admin roles",
-      "Timed exams and scoring",
-      "Question bank and assessment builder",
-      "Report cards and learning resources"
-    ],
-    "number": "03",
-    "image": "/images/projects/examora.jpg",
-    "imageAlt": "Examora sign-in page screenshot"
-  },
-  {
-    "id": "blaykik",
-    "title": "Blaykik Store",
-    "type": "Food brand storefront",
-    "category": "Commerce",
-    "description": "A product-led website for a Nigerian food brand, showcasing Ijebu garri, palm oil, pantry staples, and custom branded packs.",
-    "tags": [
-      "React",
-      "Vite",
-      "Branding",
-      "Responsive UI"
-    ],
-    "accent": "green",
-    "visual": "blaykik",
-    "repository": "salzyff/blaykik-store",
-    "privateSource": true,
-    "link": "https://blaykik-preview.vercel.app",
-    "linkLabel": "Visit website",
-    "details": [
-      "Ijebu garri, palm oil, and foodstuffs",
-      "Product-led visual storytelling",
-      "Custom branded pack enquiries",
-      "Responsive brand and contact pages"
-    ],
-    "number": "04",
-    "image": "/images/projects/blaykik.jpg",
-    "imageAlt": "Blaykik Store website screenshot"
-  },
-  {
-    "id": "akapsys",
-    "title": "Akapsys Consultancy",
-    "type": "Service website",
-    "category": "Client work",
-    "description": "A consultancy website that helps manufacturers, importers, and brand owners understand product registration and prepare their next steps.",
-    "tags": [
-      "React",
-      "CSS",
-      "UX writing",
-      "Responsive UI"
-    ],
-    "accent": "teal",
-    "visual": "akapsys",
-    "repository": "salzyff/project2",
-    "link": "https://project267.vercel.app",
-    "linkLabel": "Visit website",
-    "details": [
-      "Product-specific regulatory pathways",
-      "Services and process sections",
-      "FAQ and contact pathways",
-      "Documentation and registration guidance"
-    ],
-    "number": "05",
-    "image": "/images/projects/akapsys.jpg",
-    "imageAlt": "Akapsys Consultancy website screenshot"
-  },
-  {
-    "id": "wearayo",
-    "title": "WearAyo",
-    "type": "Sneaker storefront",
-    "category": "Commerce",
-    "description": "A sneaker storefront with brand-new and pre-loved collections, a shopping bag, and a sample WhatsApp order flow.",
-    "tags": [
-      "React",
-      "Vite",
-      "Storefront",
-      "Responsive UI"
-    ],
-    "accent": "orange",
-    "visual": "fashion",
-    "repository": "salzyff/wearayo",
-    "link": "https://wearayo.vercel.app",
-    "linkLabel": "Visit website",
-    "details": [
-      "Brand-new and pre-loved sneaker filters",
-      "Add and remove pairs from the bag",
-      "Sample WhatsApp order flow",
-      "Responsive navigation and signup feedback"
-    ],
-    "number": "06",
-    "image": "/images/projects/wearayo.jpg",
-    "imageAlt": "WearAyo website screenshot"
-  },
-  {
-    "id": "monica",
-    "title": "Monica Seafood",
-    "type": "Seafood storefront",
-    "category": "Commerce",
-    "description": "A seafood and Nigerian pantry storefront with product filters, an enquiry basket, and a WhatsApp flow for confirming prices and availability.",
-    "tags": [
-      "React",
-      "Vite",
-      "Local storage",
-      "WhatsApp"
-    ],
-    "accent": "teal",
-    "visual": "seafood",
-    "repository": "salzyff/monica-seafood",
-    "link": "https://monica-seafood.vercel.app",
-    "linkLabel": "Visit website",
-    "details": [
-      "Seafood and pantry product filters",
-      "Persistent basket and quantity controls",
-      "Delivery details and product preferences",
-      "WhatsApp availability and price enquiries"
-    ],
-    "number": "07",
-    "image": "/images/projects/monica.jpg",
-    "imageAlt": "Monica Seafood website screenshot"
-  },
-  {
-    "id": "ejire",
-    "title": "Ejire Onigarri",
-    "type": "Food brand website",
-    "category": "Commerce",
-    "description": "A plum-and-blush website for a Nigerian garri brand, with product collections, serving ideas, souvenir requests, and an enquiry bag.",
-    "tags": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "WhatsApp"
-    ],
-    "accent": "rose",
-    "visual": "garri",
-    "repository": "salzyff/ejiregarri",
-    "link": "https://ejiregarri.vercel.app",
-    "linkLabel": "Visit website",
-    "details": [
-      "Product collections and founder story",
-      "Serving-idea tabs and FAQ",
-      "Souvenir and bulk enquiry forms",
-      "Persistent bag with WhatsApp and email enquiries"
-    ],
-    "number": "08",
-    "image": "/images/projects/ejire.jpg",
-    "imageAlt": "Ejire Onigarri website screenshot"
-  }
-]
-
-const projectCount = String(projects.length).padStart(2, '0')
-const filters = ['All', ...new Set(projects.map((project) => project.category))]
+const whatsapp = 'https://wa.me/2347042785091?text=Hi%20Salam%2C%20I%20saw%20your%20portfolio.%20I%27d%20like%20to%20talk%20about%20a%20project.'
+const categories = ['All work', 'Applications', 'Commerce', 'Brand websites', 'Experiments']
+const number = (value) => String(value).padStart(2, '0')
 
 function App() {
-  const [activeFilter, setActiveFilter] = useState('All')
+  const [filter, setFilter] = useState('All work')
+  const [search, setSearch] = useState('')
   const [selected, setSelected] = useState(null)
   const [menuOpen, setMenuOpen] = useState(false)
-
-  const visibleProjects = useMemo(() => activeFilter === 'All' ? projects : projects.filter((project) => project.category === activeFilter), [activeFilter])
-
-  useEffect(() => {
-    document.body.style.overflow = selected ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [selected])
-
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    setMenuOpen(false)
-  }
-
-  return (
-    <div className="app-shell">
-      <div className="grain" />
-      <header className="site-header">
-        <button className="brand" onClick={() => scrollTo('top')} aria-label="Back to top">
-          <span className="brand-mark">S<span>.</span></span>
-          <span>AKAPO ABDUL SALAM</span>
-        </button>
-        <nav className={menuOpen ? 'main-nav open' : 'main-nav'}>
-          <button onClick={() => scrollTo('work')}>Work</button>
-          <button onClick={() => scrollTo('about')}>About</button>
-          <button onClick={() => scrollTo('contact')}>Contact</button>
-        </nav>
-        <button className="header-cta" onClick={() => scrollTo('contact')}>
-          Let’s talk <ArrowUpRight size={15} />
-        </button>
-        <button className="menu-button" onClick={() => setMenuOpen((value) => !value)} aria-label="Toggle menu">
-          {menuOpen ? <X size={21} /> : <Menu size={21} />}
-        </button>
-      </header>
-
-      <main id="top">
-        <section className="hero section-pad">
-          <div className="hero-copy">
-            <div className="eyebrow"><span className="eyebrow-dot" /> Independent developer · Nigeria</div>
-            <h1>I turn bold ideas into <em>useful</em> digital products.</h1>
-            <p className="hero-intro">I’m Akapo Abdul Salam — a React developer building thoughtful interfaces, practical tools, and brand experiences for the web.</p>
-            <div className="hero-actions">
-              <button className="button button-primary" onClick={() => scrollTo('work')}>Explore my work <ArrowDownRight size={18} /></button>
-              <button className="text-button" onClick={() => scrollTo('about')}>A little about me <ChevronRight size={16} /></button>
-            </div>
-          </div>
-          <div className="hero-portrait">
-            <figure className="portrait-frame">
-              <div className="portrait-photo">
-                <img src="/images/akapo-abdul-salam.jpg" alt="Akapo Abdul Salam" width="1122" height="1402" fetchPriority="high" decoding="async" />
-              </div>
-              <figcaption>
-                <div className="portrait-identity"><span>AKAPO ABDUL SALAM</span><small>React developer · Nigeria</small></div>
-                <div className="portrait-projects"><strong>{projectCount}</strong><span>projects</span></div>
-              </figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section className="marquee" aria-label="Skills">
-          <div className="marquee-track"><span>REACT</span><b>✳</b><span>PRODUCT THINKING</span><b>✳</b><span>RESPONSIVE UI</span><b>✳</b><span>BUILD IN PUBLIC</span><b>✳</b><span>REACT</span><b>✳</b><span>PRODUCT THINKING</span><b>✳</b><span>RESPONSIVE UI</span><b>✳</b><span>BUILD IN PUBLIC</span><b>✳</b></div>
-        </section>
-
-        <section className="work section-pad" id="work">
-          <div className="section-heading">
-            <div><p className="kicker">Selected work / 2026</p><h2>Things I’ve <em>built.</em></h2></div>
-            <p className="section-note">Web apps, brand websites, and storefronts — all with repositories in my GitHub account.</p>
-          </div>
-          <div className="filter-row" role="tablist" aria-label="Filter projects">
-            {filters.map((filter) => <button key={filter} className={activeFilter === filter ? 'filter active' : 'filter'} onClick={() => setActiveFilter(filter)}>{filter}</button>)}
-          </div>
-          <div className="project-grid">
-            {visibleProjects.map((project) => <ProjectCard key={project.id} project={project} onOpen={setSelected} />)}
-          </div>
-        </section>
-
-        <section className="about section-pad" id="about">
-          <div className="about-stamp"><span>BUILD<br />WITH<br /><i>intent.</i></span><div className="stamp-ring" /></div>
-          <div className="about-copy">
-            <p className="kicker">A little context</p>
-            <h2>More than just<br /><em>pretty screens.</em></h2>
-            <p>I care about the moment a product stops feeling like an idea and starts feeling real. My work usually sits at the intersection of good interface design, clear user journeys, and technology that actually solves something.</p>
-            <p>From school systems and AI tools to commerce brands and trade infrastructure, I like building across different worlds — and learning what each one needs.</p>
-            <div className="about-facts"><span><strong>{projectCount}</strong> repositories featured</span><span><strong>React</strong> main toolkit</span><span><strong>NG</strong> building from Nigeria</span></div>
-          </div>
-        </section>
-
-        <section className="contact section-pad" id="contact">
-          <div className="contact-inner">
-            <div><p className="kicker">Have an idea?</p><h2>Let’s make it<br /><em>worth clicking.</em></h2></div>
-            <div className="contact-side"><p>Whether you need a product prototype, a sharp brand website, or help turning a messy idea into a clear experience, I’d love to hear about it.</p><button className="button button-light" onClick={() => window.location.href = 'mailto:?subject=Project%20idea%20for%20Akapo%20Abdul%20Salam'}>Start a conversation <ArrowUpRight size={18} /></button></div>
-          </div>
-        </section>
-      </main>
-
-      <footer className="site-footer"><span>© 2026 AKAPO ABDUL SALAM</span><span>Built with React & curiosity</span><button onClick={() => scrollTo('top')}>Back to top <ArrowUpRight size={14} /></button></footer>
-
-      {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
-    </div>
-  )
+  const visible = projects.filter((p) => (filter === 'All work' || p.category === filter) && `${p.title} ${p.type} ${p.description} ${p.tags.join(' ')}`.toLowerCase().includes(search.toLowerCase().trim()))
+  const featured = visible.filter((p) => p.featured)
+  const index = visible.filter((p) => !p.featured)
+  return <>
+    <a className="skip-link" href="#main">Skip to content</a>
+    <header className="site-header page-width">
+      <a href="#top" className="wordmark" aria-label="Salam Akapo home">sa<span>↗</span></a>
+      <span className="header-note">Independent developer<br />Based in Nigeria</span>
+      <nav aria-label="Main navigation" className={menuOpen ? 'main-nav is-open' : 'main-nav'}>
+        <a href="#work" onClick={() => setMenuOpen(false)}>Work <sup>{number(projects.length)}</sup></a>
+        <a href="#about" onClick={() => setMenuOpen(false)}>A little about me</a>
+        <a href="#contact" onClick={() => setMenuOpen(false)}>Let’s talk <ArrowUpRight size={15} /></a>
+      </nav>
+      <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>{menuOpen ? <X /> : <Menu />}</button>
+    </header>
+    <main id="main">
+      <section className="hero page-width" id="top" aria-labelledby="hero-title">
+        <div className="hero-heading">
+          <div className="edition"><span className="small-cross" aria-hidden="true">✳</span> A working collection <span>2026 / Vol. 01</span></div>
+          <h1 id="hero-title">Salam<br /><em>Akapo.</em><span className="name-period" aria-hidden="true">↗</span></h1>
+          <p className="hero-deck">A developer with an eye for the details<br className="desktop-break" /> and a thing for making things work.</p>
+          <div className="hero-bottom"><a className="work-jump" href="#work"><ArrowDownRight size={27} /><span>Take a look<br />around.</span></a><span className="hero-specialty">Web experiences.<br />Useful applications.<br />A little experimentation.</span></div>
+        </div>
+        <div className="hero-collage" aria-label="A few things from my desk">
+          <span className="collage-caption">A few things from my desk ↙</span>
+          <button className="desk-print print-back" onClick={() => setSelected(projects.find(p => p.id === 'ceeyline'))} aria-label="Explore Ceeyline"><span className="print-header"><span>CEEYLINE</span><ArrowUpRight size={13} /></span><img src="/images/projects/ceeyline.jpg" alt="Ceeyline fashion storefront" width="1348" height="926" fetchPriority="high" /></button>
+          <button className="desk-print print-front" onClick={() => setSelected(projects.find(p => p.id === 'atelier'))} aria-label="Explore Jewellery Atelier"><span className="print-header"><span>AN INTERACTIVE LITTLE EXPERIMENT</span><span>03</span></span><img src="/images/projects/atelier.jpg" alt="Interactive jewellery ring designer" width="1363" height="936" fetchPriority="high" /><span className="print-footer">Made to play with. <Plus size={15} /></span></button>
+          <figure className="author-stamp"><img src="/images/akapo-abdul-salam.jpg" alt="Salam Akapo" width="1122" height="1402" /><figcaption>Yep, that’s me.<br /><span>THE PERSON BEHIND THE WORK</span></figcaption></figure>
+          <span className="round-note" aria-hidden="true">Made with<br /><em>curiosity.</em><span>↗</span></span>
+        </div>
+      </section>
+      <div className="chapter-line page-width"><span>01 / The work</span><span>From everyday problems to the occasional “what if?”</span><ArrowDown size={16} /></div>
+      <section className="work page-width" id="work" aria-labelledby="work-title">
+        <div className="section-intro"><h2 id="work-title">A few good ideas,<br /><em>put to work.</em></h2><div><p>School tools, storefronts, and things I wanted to try. Every project here has a different job to do.</p><span className="micro">{number(projects.length)} projects / Updated November 2026</span></div></div>
+        <div className="work-tools"><div className="filters" role="group" aria-label="Filter projects">{categories.map(c => <button key={c} className={filter === c ? 'filter active' : 'filter'} aria-pressed={filter === c} onClick={() => setFilter(c)}>{c}<sup>{number(c === 'All work' ? projects.length : projects.filter(p => p.category === c).length)}</sup></button>)}</div><label className="search"><Search size={16} /><input value={search} onChange={e => setSearch(e.target.value)} placeholder="Find a project" aria-label="Find a project" />{search && <button onClick={() => setSearch('')} aria-label="Clear search"><X size={14} /></button>}</label></div>
+        <p className="sr-only" aria-live="polite">{visible.length} projects shown</p>
+        {featured.length > 0 && <div className="featured-grid">{featured.map(p => <ProjectCard key={p.id} project={p} onOpen={setSelected} />)}</div>}
+        {index.length > 0 && <section className="project-index" aria-labelledby="index-title"><div className="index-heading"><h3 id="index-title">More from the shelf.</h3><span className="micro">{number(index.length)} more things to explore</span></div><div className="index-list">{index.map(p => <button key={p.id} className="index-row" onClick={() => setSelected(p)}><span className="index-number">{p.number}</span><img src={p.image} alt="" width="1348" height="926" loading="lazy" /><span className="index-name"><strong>{p.title}</strong><small>{p.type}</small></span><span className="index-category">{p.category}</span><span className="index-open"><span>Project notes</span><ArrowUpRight size={23} /></span></button>)}</div></section>}
+        {visible.length === 0 && <div className="empty-state"><h3>Nothing on this shelf.</h3><p>Try a different name or category.</p><button className="text-link" onClick={() => { setSearch(''); setFilter('All work') }}>Show all projects <ArrowRight size={16} /></button></div>}
+      </section>
+      <section className="about-section" id="about" aria-labelledby="about-title"><div className="page-width about-inner"><div className="about-label"><span className="micro">02 / The person</span><span className="about-asterisk" aria-hidden="true">✳</span><span className="micro">Curiosity is a useful habit.</span></div><div className="about-main"><div className="about-headline"><h2 id="about-title">I like the bit where<br />an idea starts<br /><em>working.</em></h2><figure className="about-photo"><img src="/images/akapo-abdul-salam.jpg" alt="Salam Akapo, developer" width="1122" height="1402" loading="lazy" /><figcaption>Salam Akapo / Nigeria</figcaption></figure></div><div className="about-copy"><p>I’m Salam, a developer based in Nigeria. I build with React, and I like getting involved in the whole thing: how a page feels, how the data moves, and what happens when someone actually uses it.</p><p>Lately that’s meant a school exam platform that works on a local network, storefronts for growing brands, and tools that use AI for a specific job.</p><p>I care about clear interfaces and the small details that make them easier to use. I’m also happy to follow a curious idea and see where it goes.</p><div className="toolbox"><span className="micro">On my workbench</span><p>React · Next.js · JavaScript · TypeScript<br />Node.js · PostgreSQL · Supabase · Three.js</p></div><a className="about-github" href="https://github.com/salzyff" target="_blank" rel="noreferrer">Find me on GitHub <ArrowUpRight size={18} /></a></div></div></div></section>
+      <section className="contact page-width" id="contact" aria-labelledby="contact-title"><div className="contact-top"><span className="micro">03 / Your next idea</span><span className="micro">Good conversations start somewhere.</span></div><h2 id="contact-title">What are you<br /><em>thinking?</em></h2><div className="contact-bottom"><p>A website for your business? A tool that should exist?<br />Tell me what you have in mind.</p><a className="contact-link" href={whatsapp} target="_blank" rel="noreferrer">Let’s talk <ArrowUpRight size={42} /></a></div></section>
+    </main>
+    <footer className="site-footer page-width"><a className="wordmark" href="#top" aria-label="Back to top">sa<span>↗</span></a><span>© {new Date().getFullYear()} Salam Akapo</span><div><a href="https://github.com/salzyff" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13} /></a><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp <ArrowUpRight size={13} /></a><a href="#top">Back to top <ArrowUpRight size={13} /></a></div></footer>
+    {selected && <ProjectDialog project={selected} onClose={() => setSelected(null)} />}
+  </>
 }
 
-function ProjectCard({ project, onOpen }) {
-  return <article className={`project-card accent-${project.accent}`} onClick={() => onOpen(project)} tabIndex="0" onKeyDown={(event) => event.key === 'Enter' && onOpen(project)}>
-    <div className="card-visual"><ProjectVisual project={project} /><span className="card-number">{project.number}</span><span className="open-card"><MoveUpRight size={18} /></span></div>
-    <div className="card-content"><div className="card-meta"><span>{project.type}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
+function ProjectCard({project:p,onOpen}) {
+  return <article className={`project-card project-${p.id}`}>
+    <button className="project-art" onClick={() => onOpen(p)} aria-label={`Explore ${p.title}`}><span className="art-topline"><span>PROJECT {p.number}</span><span>{p.year}</span></span><img src={p.image} alt={p.imageAlt} width="1348" height="926" loading="lazy" decoding="async" /><span className="art-footnote"><span>{p.type}</span><span className="project-open"><Plus size={20} /></span></span></button>
+    <div className="project-caption"><div><span className="micro">{p.category}</span><h3><button onClick={() => onOpen(p)}>{p.title} <ArrowUpRight size={23} /></button></h3></div><p>{p.description}</p></div>
   </article>
 }
 
-function ProjectModal({ project, onClose }) {
-  return <div className="modal-backdrop" onClick={onClose}><div className={`modal accent-${project.accent}`} onClick={(event) => event.stopPropagation()} role="dialog" aria-modal="true" aria-label={`${project.title} details`}>
-    <button className="modal-close" onClick={onClose} aria-label="Close project details"><X size={20} /></button>
-    <div className="modal-visual"><ProjectVisual project={project} large /></div>
-    <div className="modal-body"><p className="kicker">{project.number} / {project.type}</p><h2>{project.title}</h2>{project.oldTitle && <p className="old-title">Previously called {project.oldTitle}</p>}<p className="modal-description">{project.description}</p><div className="details-list">{project.details.map((detail) => <span key={detail}><Check size={15} />{detail}</span>)}</div><div className="modal-bottom">{project.privateSource ? <p className="source-note">Source code is in a private GitHub repository.</p> : <a className="source-link" href={`https://github.com/${project.repository}`} target="_blank" rel="noreferrer">View GitHub repository <ExternalLink size={14} /></a>}<div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>{project.link ? <a className="button button-primary" href={project.link} target="_blank" rel="noreferrer">{project.linkLabel} <ExternalLink size={16} /></a> : <button className="button button-primary" onClick={onClose}>Close details <X size={16} /></button>}</div></div>
-  </div></div>
-}
-
-function ProjectVisual({ project, large = false }) {
-  return <img className={large ? 'project-screenshot large' : 'project-screenshot'} src={project.image} alt={project.imageAlt} width="1348" height="926" loading={large ? 'eager' : 'lazy'} decoding="async" />
+function ProjectDialog({project:p,onClose}) {
+  const ref = useRef(null)
+  useEffect(() => {
+    const dialog = ref.current
+    const previousOverflow = document.body.style.overflow
+    dialog.showModal()
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = previousOverflow }
+  }, [])
+  return <dialog ref={ref} className="project-dialog" onCancel={onClose} onClose={onClose} onClick={e => { if (e.target === e.currentTarget) onClose() }} aria-labelledby="project-title">
+    <div className="dialog-content"><div className="dialog-top"><span className="micro">Project {p.number} / {p.category}</span><button className="dialog-close" onClick={onClose} aria-label="Close project notes"><X size={22} /></button></div><div className="dialog-image"><img src={p.image} alt={p.imageAlt} width="1348" height="926" /></div><div className="dialog-body"><p className="micro">{p.type} / {p.year}</p><h2 id="project-title">{p.title}</h2><p className="dialog-description">{p.description}</p><div className="dialog-detail-grid"><div><h3>What’s in it</h3><ul>{p.details.map(d => <li key={d}><Check size={16} /><span>{d}</span></li>)}</ul></div><div><h3>Made with</h3><div className="project-tags">{p.tags.map(t => <span key={t}>{t}</span>)}</div></div></div>{p.note && <p className="project-note">{p.note}</p>}<div className="dialog-actions">{p.link ? <a className="solid-link" href={p.link} target="_blank" rel="noreferrer">Open website <ArrowUpRight size={18} /></a> : <a className="solid-link" href={`https://wa.me/2347042785091?text=${encodeURIComponent(`Hi Salam, I'd love a walkthrough of ${p.title}.`)}`} target="_blank" rel="noreferrer">Ask for a walkthrough <ArrowUpRight size={18} /></a>}{!p.privateSource && <a className="text-link" href={`https://github.com/${p.repository}`} target="_blank" rel="noreferrer">View source <ArrowUpRight size={17} /></a>}</div></div></div>
+  </dialog>
 }
 
 createRoot(document.getElementById('root')).render(<App />)
