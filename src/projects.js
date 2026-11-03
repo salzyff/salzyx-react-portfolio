@@ -268,35 +268,6 @@ export const projects = [
     "number": "10"
   },
   {
-    "id": "examora",
-    "title": "Examora",
-    "type": "Exam management system",
-    "category": "Applications",
-    "description": "An exam application for students, teachers, and administrators, with assessments, question banks, results, and school dashboards.",
-    "tags": [
-      "React",
-      "Supabase",
-      "Auth",
-      "Vercel"
-    ],
-    "repository": "salzyff/Examora",
-    "privateSource": true,
-    "link": "https://examora-navy.vercel.app",
-    "linkLabel": "Visit Examora",
-    "details": [
-      "Student, teacher, and admin roles",
-      "Timed exams and scoring",
-      "Question bank and assessment builder",
-      "Report cards and learning resources"
-    ],
-    "image": "/images/projects/examora.jpg",
-    "imageAlt": "Examora sign-in page screenshot",
-    "featured": false,
-    "year": "2026",
-    "note": "",
-    "number": "11"
-  },
-  {
     "id": "wearayo",
     "title": "WearAyo",
     "type": "Sneaker storefront",
@@ -322,63 +293,7 @@ export const projects = [
     "featured": false,
     "year": "2026",
     "note": "",
-    "number": "12"
-  },
-  {
-    "id": "ejire",
-    "title": "Ejire Onigarri",
-    "type": "Food brand website",
-    "category": "Commerce",
-    "description": "A plum-and-blush website for a Nigerian garri brand, with product collections, serving ideas, souvenir requests, and an enquiry bag.",
-    "tags": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "WhatsApp"
-    ],
-    "repository": "salzyff/ejiregarri",
-    "link": "https://ejiregarri.vercel.app",
-    "linkLabel": "Visit website",
-    "details": [
-      "Product collections and founder story",
-      "Serving-idea tabs and FAQ",
-      "Souvenir and bulk enquiry forms",
-      "Persistent bag with WhatsApp and email enquiries"
-    ],
-    "image": "/images/projects/ejire.jpg",
-    "imageAlt": "Ejire Onigarri website screenshot",
-    "featured": false,
-    "year": "2026",
-    "note": "",
-    "number": "13"
-  },
-  {
-    "id": "monica",
-    "title": "Monica Seafood",
-    "type": "Seafood storefront",
-    "category": "Commerce",
-    "description": "A seafood and Nigerian pantry storefront with product filters, an enquiry basket, and a WhatsApp flow for confirming prices and availability.",
-    "tags": [
-      "React",
-      "Vite",
-      "Local storage",
-      "WhatsApp"
-    ],
-    "repository": "salzyff/monica-seafood",
-    "link": "https://monica-seafood.vercel.app",
-    "linkLabel": "Visit website",
-    "details": [
-      "Seafood and pantry product filters",
-      "Persistent basket and quantity controls",
-      "Delivery details and product preferences",
-      "WhatsApp availability and price enquiries"
-    ],
-    "image": "/images/projects/monica.jpg",
-    "imageAlt": "Monica Seafood website screenshot",
-    "featured": false,
-    "year": "2026",
-    "note": "",
-    "number": "14"
+    "number": "11"
   },
   {
     "id": "akapsys",
@@ -406,6 +321,6 @@ export const projects = [
     "featured": false,
     "year": "2026",
     "note": "The old live preview link is unavailable. The project source is still on GitHub.",
-    "number": "15"
+    "number": "12"
   }
 ]
