@@ -63,7 +63,7 @@ function App() {
         <p className="sr-only" aria-live="polite">{visible.length} projects shown</p>
 
         {featured.length > 0 && <div className="featured-grid">{featured.map((project, index) => <ProjectCard key={project.id} project={project} index={index} onOpen={setSelected} />)}</div>}
-        {more.length > 0 && <section className="project-list" aria-labelledby="more-title"><div className="list-heading"><h3 id="more-title">And a few more.</h3><span>{pad(more.length)} PROJECTS</span></div>{more.map((project) => <button className="list-row" key={project.id} onClick={() => setSelected(project)}><span className="list-number">{project.number}</span><img src={project.image} alt="" width="1348" height="926" loading="lazy" /><span className="list-title"><strong>{project.title}</strong><small>{project.type}</small></span><span className="list-category">{project.category}</span><ArrowUpRight className="list-arrow" size={20} /></button>)}</section>}
+        {more.length > 0 && <section className="archive-section" aria-labelledby="more-title"><div className="archive-heading"><div><p className="eyebrow blue-eyebrow">THE PROJECT ARCHIVE <span>/</span> {pad(more.length)}</p><h3 id="more-title">The rest of the work.</h3></div><p>A closer look at the other sites, tools, and experiments I’ve worked on.</p></div><div className="archive-grid">{more.map((project) => <ArchiveCard key={project.id} project={project} onOpen={setSelected} />)}</div></section>}
         {visible.length === 0 && <div className="empty-state"><span>Nothing here yet.</span><p>Try another search or reset the filters.</p><button onClick={() => { setSearch(''); setFilter('All work') }}>Show all projects <ArrowRight size={16} /></button></div>}
       </section>
 
@@ -86,6 +86,17 @@ function ProjectCard({ project, index, onOpen }) {
     </button>
     <div className="project-info"><div><p className="project-type">{project.type}</p><h3><button onClick={() => onOpen(project)}>{project.title}</button></h3></div><p className="project-description">{project.description}</p></div>
     <div className="project-meta"><span>{project.tags.slice(0, 3).join(' · ')}</span><button onClick={() => onOpen(project)}>Project details <ArrowRight size={14} /></button></div>
+  </article>
+}
+
+function ArchiveCard({ project, onOpen }) {
+  return <article className={`archive-card project-${project.id}`}>
+    <button className="archive-visual" onClick={() => onOpen(project)} aria-label={`Open ${project.title} project details`}>
+      <span className="archive-number">{project.number}</span>
+      <img src={project.image} alt={project.imageAlt} width="1348" height="926" loading="lazy" decoding="async" />
+      <span className="archive-open"><ArrowUpRight size={18} /></span>
+    </button>
+    <div className="archive-card-copy"><div className="archive-card-label"><span>{project.category}</span><span>{project.type}</span></div><h4>{project.title}</h4><p>{project.description}</p><button className="archive-detail" onClick={() => onOpen(project)}>Project details <ArrowRight size={14} /></button></div>
   </article>
 }
 
