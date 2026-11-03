@@ -54,7 +54,7 @@ function App() {
       </section>
 
       <section className="work page-width" id="work" aria-labelledby="work-title">
-        <div className="work-heading"><div><p className="eyebrow blue-eyebrow">SELECTED WORK <span>/</span> 2026</p><h2 id="work-title">Different problems.<br /><span>Different kinds of work.</span></h2></div><p className="work-intro">A school platform, a few storefronts, some ideas that started with “what if?” Here’s a mix of things I’ve built and learned from.</p></div>
+        <div className="work-heading"><div><p className="eyebrow blue-eyebrow">SELECTED WORK <span>/</span> 2026</p><h2 id="work-title">Different problems.<br /><span>Different kinds<br className="mobile-break" /> of work.</span></h2></div><p className="work-intro">A school platform, a few storefronts, some ideas that started with “what if?” Here’s a mix of things I’ve built and learned from.</p></div>
 
         <div className="work-controls">
           <div className="filters" role="group" aria-label="Filter projects">{categories.map((category) => <button key={category} className={filter === category ? 'filter active' : 'filter'} aria-pressed={filter === category} onClick={() => setFilter(category)}>{category}<sup>{pad(category === 'All work' ? projects.length : projects.filter((p) => p.category === category).length)}</sup></button>)}</div>
