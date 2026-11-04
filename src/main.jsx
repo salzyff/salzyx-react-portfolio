@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { ArrowDown, ArrowDownRight, ArrowUpRight, ArrowRight, Check, Menu, Search, X } from 'lucide-react'
+import { ArrowDown, ArrowDownRight, ArrowUpRight, ArrowRight, Check, Mail, Menu, Search, X } from 'lucide-react'
 import { projects } from './projects'
 import './styles.css'
 
 const whatsapp = 'https://wa.me/2347042785091?text=Hi%20Salam%2C%20I%20saw%20your%20portfolio.%20I%27d%20like%20to%20talk%20about%20a%20project.'
+const email = 'akapsy@yahoo.com'
 const categories = ['All work', 'Applications', 'Commerce', 'Brand websites', 'Experiments']
 const pad = (value) => String(value).padStart(2, '0')
 
@@ -71,10 +72,10 @@ function App() {
 
       <section className="about-section" id="about" aria-labelledby="about-title"><div className="about-inner page-width"><div className="about-photo"><img src="/images/salam-selected-portrait.jpg" alt="Salam Akapo" width="900" height="1125" loading="lazy" /><span>THAT’S ME, BY THE WAY.</span></div><div className="about-copy"><p className="eyebrow">A LITTLE ABOUT ME <span>/</span> 02</p><h2 id="about-title">I care about what happens <span>after the first click.</span></h2><p>I’m Salam, a developer based in Nigeria. I like the whole process: getting a fuzzy idea into focus, making the interface feel right, and figuring out how the parts fit together.</p><p>Recently, that’s meant building a school exam platform for a local network, storefronts for growing brands, and a few useful experiments along the way.</p><div className="toolbox"><span>THINGS I WORK WITH</span><p>React · Next.js · JavaScript · TypeScript<br />Node.js · PostgreSQL · Supabase · Three.js</p></div><div className="about-links"><a className="github-link" href="https://github.com/salzyff" target="_blank" rel="noreferrer">See what I’m building on GitHub <ArrowUpRight size={17} /></a><a className="contact-button about-contact" href={whatsapp} target="_blank" rel="noreferrer">Contact me <ArrowUpRight size={17} /></a></div></div></div></section>
 
-      <section className="contact page-width" id="contact" aria-labelledby="contact-title"><div className="contact-index"><span>03 / YOUR TURN</span><span>OPEN TO A GOOD CHALLENGE</span></div><div className="contact-body"><h2 id="contact-title">Got something<br />in mind<span>?</span></h2><div className="contact-side"><p>A business that needs a website? A tool that should exist? Send me the rough version of the idea. We can figure out the rest.</p><a href={whatsapp} target="_blank" rel="noreferrer">Tell me about it <ArrowUpRight size={20} /></a></div></div></section>
+      <section className="contact page-width" id="contact" aria-labelledby="contact-title"><div className="contact-index"><span>03 / YOUR TURN</span><span>OPEN TO A GOOD CHALLENGE</span></div><div className="contact-body"><h2 id="contact-title">Got something<br />in mind<span>?</span></h2><div className="contact-side"><p>A business that needs a website? A tool that should exist? Send me the rough version of the idea. We can figure out the rest.</p><div className="contact-actions"><a href={whatsapp} target="_blank" rel="noreferrer">Message me on WhatsApp <ArrowUpRight size={20} /></a><a className="email-contact" href={`mailto:${email}`}><Mail size={18} /> Email me</a></div></div></div></section>
     </main>
 
-    <footer className="site-footer page-width"><a className="brand" href="#top"><span className="brand-mark">S<span>.</span></span><span className="brand-name">SALAM AKAPO<small>Built with curiosity.</small></span></a><span className="copyright">© {new Date().getFullYear()} / IBADAN, NIGERIA</span><div><a href="https://github.com/salzyff" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13} /></a><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp <ArrowUpRight size={13} /></a></div></footer>
+    <footer className="site-footer page-width"><a className="brand" href="#top"><span className="brand-mark">S<span>.</span></span><span className="brand-name">SALAM AKAPO<small>Built with curiosity.</small></span></a><span className="copyright">© {new Date().getFullYear()} / LAGOS, NIGERIA</span><div><a href="https://github.com/salzyff" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={13} /></a><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp <ArrowUpRight size={13} /></a><a href={`mailto:${email}`}>Email <ArrowUpRight size={13} /></a></div></footer>
     {selected && <ProjectDialog project={selected} onClose={() => setSelected(null)} />}
   </>
 }
