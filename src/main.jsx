@@ -5,7 +5,7 @@ import { projects } from './projects'
 import './styles.css'
 
 const whatsapp = 'https://wa.me/2347042785091?text=Hi%20Salam%2C%20I%20saw%20your%20portfolio.%20I%27d%20like%20to%20talk%20about%20a%20project.'
-const email = 'akapsy@yahoo.com'
+const email = 'salzyff@gmail.com'
 const categories = ['All work', 'Applications', 'Commerce', 'Brand websites', 'Experiments']
 const pad = (value) => String(value).padStart(2, '0')
 
